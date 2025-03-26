@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Single and Double Click Handler</title>
+  <style>
+    #myButton {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <button id="myButton">Click Me</button>
+
+  <script>
+   const button = document.getElementById("myButton");
+    function onClick(node, singleClickCb, doubleClickCb) {
+      let clickTimeout;
+
+      node.addEventListener("click", () => {
+        if (clickTimeout) {
+          clearTimeout(clickTimeout); 
+          clickTimeout = null;
+          doubleClickCb(); 
+        } else {
+          clickTimeout = setTimeout(() => {
+            singleClickCb(); 
+            clickTimeout = null;
+          }, 300); 
+        }
+      });
+    }    
+
+    onClick(
+      button,
+      () => console.log("Single click"),
+      () => console.log("Double click ")
+    );
+  </script>
+</body>
+</html>
