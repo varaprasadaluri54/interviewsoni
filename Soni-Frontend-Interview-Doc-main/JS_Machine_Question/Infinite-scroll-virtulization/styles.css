@@ -1,0 +1,26 @@
+#container {
+  width: 300px;
+  height: 400px;
+  margin: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 1px solid #ddd;
+  position: relative;
+}
+.item {
+  position: absolute;
+  width: 100%;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  background: #f9f9f9;
+}
+#loading {
+  text-align: center;
+  margin: 10px;
+  display: none;
+}
+#header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
